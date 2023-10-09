@@ -1,0 +1,48 @@
+/* styles.css */
+body {
+    background-color: pink;
+    /* Fondo rosa */
+}
+
+h1 {
+    color: pink;
+    /* Texto rosa */
+}
+
+/* Estilo general para todos los input */
+input {
+    padding: 10px;
+    /* Espaciado interno para mayor comodidad */
+    border: 1px solid pink;
+    /* Borde rosa */
+    border-radius: 5px;
+    /* Esquinas redondeadas */
+    margin-bottom: 10px;
+    /* Margen inferior para separar los input */
+}
+
+/* Estilo específico para el input con el ID "from" */
+#from {
+    width: 100%;
+    /* Ancho completo del contenedor */
+}
+
+/* Estilo específico para el input con el ID "to" */
+#to {
+    width: 100%;
+    /* Ancho completo del contenedor */
+}
+
+/* Estilo específico para el input con el ID "subject" */
+#subject {
+    width: 100%;
+    /* Ancho completo del contenedor */
+}
+
+/* Estilo específico para el textarea con el ID "message" */
+#message {
+    width: 100%;
+    /* Ancho completo del contenedor */
+    resize: vertical;
+    /* Permitir redimensionar verticalmente */
+}

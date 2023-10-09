@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enviar Correo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Formulario de Envío de Correo</h1>
+  <form id="emailForm">
+    <label for="from">Remitente:</label>
+    <input type="text" id="from" name="from" value="rotelaeva821@gmail.com" required><br>
+
+
+    <label for="to">Destinatario:</label>
+    <input type="text" id="to" name="to" required><br>
+
+    <label for="subject">Asunto:</label>
+    <input type="text" id="subject" name="subject" required><br>
+
+    <label for="message">Mensaje:</label>
+    <textarea id="message" name="message" rows="4" required></textarea><br>
+
+    <button type="button" onclick="sendEmail()">Enviar Correo</button>
+  </form>
+
+  <script>
+    function sendEmail() {
+      const from = document.getElementById('from').value;
+      const to = document.getElementById('to').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      // Validación para asegurarse de que haya un destinatario
+      if (!to) {
+        alert('Por favor, ingresa la dirección de correo del destinatario.');
+        return;
+      }
+
+      // Realizar una solicitud HTTP al backend (Node.js) para enviar el correo
+      fetch('http://localhost:3000/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ from, to, subject, message }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+</body>
+</html>
